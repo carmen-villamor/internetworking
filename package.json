@@ -2,7 +2,9 @@
     "name": "internetworking",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-pi-sense-hat": "0.0.17"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
