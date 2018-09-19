@@ -306,20 +306,6 @@
         ]
     },
     {
-        "id": "6ccd9850.3feef8",
-        "type": "debug",
-        "z": "2e299254.21ad6e",
-        "name": "MID",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "x": 930,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "9c4db387.f7e86",
         "type": "inject",
         "z": "2e299254.21ad6e",
@@ -534,12 +520,11 @@
         "multicast": "false",
         "group": "255.255.255.0",
         "datatype": "utf8",
-        "x": 330,
-        "y": 40,
+        "x": 250,
+        "y": 20,
         "wires": [
             [
-                "147fc4fe.66f84b",
-                "d9034f43.e89f3"
+                "9881a42e.9847f8"
             ]
         ]
     },
@@ -553,8 +538,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 760,
-        "y": 20,
+        "x": 940,
+        "y": 40,
         "wires": []
     },
     {
@@ -572,19 +557,19 @@
         "wires": []
     },
     {
-        "id": "d9034f43.e89f3",
+        "id": "9881a42e.9847f8",
         "type": "function",
         "z": "2e299254.21ad6e",
-        "name": "temperature",
-        "func": "var datenow = Date.now();\nvar tempInput = msg.payload;\n//msg.payload = tempInput.temperature;\nvar newMsg = {\n    \"payload\" :{\n        \"date\": datenow,\n        \"temperature\": msg.payload\n    },\n    \"topic\": \"INSERT INTO blockchainlist(currentdate, temperature) values ( \" + datenow + \", \" + msg.payload + \")\"\n        };\nreturn newMsg;",
+        "name": "CONVERT",
+        "func": "var input = msg.payload\nvar array = msg.payload.split(\"\\n\")\nvar date = array[0]\nvar temperature = array[1]\n\nvar newMsg = {\n    \"payload\" :{\n        \"date\": date,\n        \"temperature\": temperature\n    },\n    \"topic\": \"INSERT INTO blockchainlist(currentdate, temperature) values ( \" + date+ \", \" + temperature + \")\"\n        };\nreturn newMsg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 470,
-        "y": 120,
+        "x": 450,
+        "y": 80,
         "wires": [
             [
-                "57c369e7.b644b8",
-                "6ccd9850.3feef8"
+                "147fc4fe.66f84b",
+                "57c369e7.b644b8"
             ]
         ]
     }
