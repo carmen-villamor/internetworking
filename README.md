@@ -1,6 +1,10 @@
 internetworking
 ===============
 
+The BlackPi branch is for the "Trusted" nodes.
+The ClearPi branch is for the "Regular"/"Data-Gathering" nodes.
+
+
 ### User Guide
 
 This user guide shows the steps on how to setup the Raspberry PIs for this project from the beginning.
